@@ -1,0 +1,54 @@
+/* Navbar container */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #ffffff; /* Lighter background */
+  padding: 10px 20px; /* Adjusted padding */
+  border-radius: 8px; /* Softer border-radius */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Softer shadow */
+  flex-wrap: wrap; /* Makes it responsive */
+}
+
+/* Links */
+.navbar a {
+  color: #e97c7c; /* Darker text for contrast */
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s, transform 0.2s;
+  position: relative;
+}
+
+/* Hover effect */
+.navbar a:hover {
+  color:#e97c7c; /* New accent color */
+  transform: translateY(-2px);
+}
+
+/* Active link style */
+.activeLink {
+  color:#e97c7c; /* New accent color */
+  font-weight: 600;
+  border-bottom: 2px solid #e97c7c; /* New accent color */
+  padding-bottom: 3px;
+}
+
+/* Welcome text */
+.welcome {
+  color: #333; /* Darker text for contrast */
+  font-weight: 600;
+  margin-left: 15px;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar a {
+    font-size: 0.95rem;
+  }
+}

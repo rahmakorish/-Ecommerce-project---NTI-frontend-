@@ -1,0 +1,172 @@
+.hero-section {
+  background-color: var(--background);
+  padding: 80px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #e97c7c;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #ffc107;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.hero-image {
+  border-radius: 15px;
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
+  max-width: 100%;
+  height: auto;
+  opacity: 1; /* Ensure image is visible from the start */
+}
+
+/* Subtle gold/blue accents */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(228,210,94,0.3) 0%, rgba(228,210,94,0) 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(56,127,220,0.2) 0%, rgba(56,127,220,0) 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+@keyframes backgroundPan {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero-section {
+  background-size: 200% 200%;
+  animation: backgroundPan 10s ease infinite;
+}
+
+.faq-testimonial-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to the next line on smaller screens */
+  gap: 20px; /* Space between the components */
+  justify-content: center; /* Center items horizontally */
+  align-items: flex-start; /* Align items to the start of the cross axis */
+  animation: fadeIn 1s ease-out forwards 1.2s; /* Delayed start for the container */
+}
+
+.faq-testimonial-container app-faq,
+.faq-testimonial-container app-testimonial {
+  flex: 1; /* Allows components to grow and shrink */
+  min-width: 300px; /* Minimum width before wrapping */
+  max-width: 48%; /* Max width to allow two items per row with gap */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px); /* Reduced initial translation for a subtler effect */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(30px); /* Reduced initial translation for a subtler effect */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-title {
+  animation: slideInLeft 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Smoother easing and slightly longer duration */
+}
+
+.hero-subtitle {
+  animation: slideInLeft 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards 0.2s; /* Smoother easing, longer duration, adjusted delay */
+}
+
+.btn-primary {
+  animation: fadeIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards 0.4s; /* Smoother easing, longer duration, adjusted delay */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-item .btn-primary {
+  margin-top: 20px;
+  background-color: var(--primary);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-item .btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.hero-image {
+  animation: slideInRight 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards 0.6s; /* Smoother easing, longer duration, adjusted delay */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .faq-testimonial-container {
+    flex-direction: column; /* Stack items vertically on small screens */
+    align-items: center; /* Center items when stacked */
+  }
+
+  .faq-testimonial-container app-faq,
+  .faq-testimonial-container app-testimonial {
+    max-width: 100%; /* Full width on small screens */
+  }
+}

@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <a class="navbar-brand" routerLink="home">That Girl</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="home" routerLinkActive="activeLink">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="marketplace" routerLinkActive="activeLink">Market</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="account" routerLinkActive="activeLink">My Account</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="faq" routerLinkActive="activeLink">FAQ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="testimonial" routerLinkActive="activeLink">Testimonial</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="cart" routerLinkActive="activeLink">My Cart</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="order" routerLinkActive="activeLink">My Orders</a>
+        </li> -->
+      </ul>
+      <div class="d-flex">
+        @if(!isloggedin){
+          <a routerLink="signup" routerLinkActive="activeLink" class="btn me-2">Sign Up</a>
+          <a routerLink="login" routerLinkActive="activeLink" class="btn ">Login</a>
+        }
+        @else{
+          <span class="navbar-text me-3">Welcome, {{name}}</span>
+          <a routerLink="login" routerLinkActive="activeLink" (click)="logout()" class="btn ">Logout</a>
+        }
+      </div>
+    </div>
+  </div>
+</nav>

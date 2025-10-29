@@ -1,0 +1,56 @@
+<div class="container py-4">
+  <h1 class="text-center mb-4" style="color: var(--primary);">My Account Info</h1>
+
+  @if(userData && userData.length > 0){
+    @for (user of userData; track user._id; let i = $index) {
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col-md-3 text-center">
+              <!-- <h4 class="card-title mt-2" style="color: var(--text);">welcome, {{ user.name }}</h4> -->
+              @if(user.image){
+                <div class="rounded-circle overflow-hidden border border-3 border-primary d-inline-block mb-3 mx-4" style="width: 120px; height: 120px;">
+                  <img [src]="staticURL + user.image" alt="{{ user.name }}'s photo" 
+                       class="img-fluid w-100 h-100" 
+                       style="object-fit: cover;" />
+                </div>
+              } @else {
+                <div class="rounded-circle overflow-hidden border border-3 border-secondary d-flex align-items-center justify-content-center mb-3" 
+                     style="width: 120px; height: 120px; background-color: #f8f9fa;">
+                     <img src="default-user-img.jpg" alt="Default user" class="user-img" />
+                  <i class="bi bi-person-fill fs-1 text-muted"></i>
+                </div>
+              }
+
+            </div>
+
+            <div class="col-md-9">
+              <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+              <p class="card-text"><strong>ID:</strong> {{ user._id }}</p>
+
+              @if(user.location && user.location.length > 0){
+                <h5 class="mt-4" style="color: var(--primary);">Registered Locations:</h5>
+                <ul class="list-group list-group-flush">
+                  @for (loc of user.location; track loc.label) {
+                    <li class="list-group-item">
+                      <strong>{{ loc.label }}</strong>: {{ loc.address }}
+                    </li>
+                  }
+                </ul>
+              } @else {
+                <p class="text-muted mt-4">— No saved locations</p>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  } @else {
+    <div class="text-center py-5">
+      <p class="lead">No user data available.</p>
+    </div>
+  }
+
+  <h3 class="mt-5 mb-3" style="color: var(--primary);">My Orders:</h3>
+  <app-order></app-order>
+</div>

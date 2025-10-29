@@ -1,0 +1,123 @@
+.faq-section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 16px;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.faq-heading {
+  text-align: center;
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 24px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.faq-item {
+  background: #f9fafb;
+  border: 1px solid #e4e4e4;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: background 0.2s ease;
+}
+
+.faq-item:hover {
+  background: #f3f4f6;
+}
+
+.faq-question {
+  margin: 0 0 0.5rem 0;
+  color: #111827;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.faq-answer {
+  margin: 0;
+  color: #374151;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.q-label,
+.a-label {
+  font-weight: 700;
+  color: #2563eb;
+  margin-right: 6px;
+}
+
+.empty-msg {
+  text-align: center;
+  color: #6b7280;
+  font-style: italic;
+}
+.navbar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.nav-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #eee;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-btn.active,
+.nav-btn:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.faq-section {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.faq-item {
+  margin-bottom: 1rem;
+}
+
+.q-label {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.a-label {
+  font-weight: bold;
+  color: #28a745;
+}
+
+.create-form label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.submit-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #218838;
+}

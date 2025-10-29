@@ -1,0 +1,25 @@
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { FaqServices } from '../../core/service/faq-services';
+import { IFAQ } from '../../models/faq.model';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-faq',
+  imports: [CommonModule],
+templateUrl: './faq.html',
+  styleUrl: './faq.css'
+})
+export class FAQ implements OnInit {
+constructor(private faqServices:FaqServices, private cdr:ChangeDetectorRef){}
+question!:IFAQ[];
+  
+ngOnInit(): void {
+  this.faqServices.getQustions().subscribe({
+  next: (res: any) => {
+    this.question= res;
+      this.cdr.detectChanges()
+  }
+  })}
+
+}
